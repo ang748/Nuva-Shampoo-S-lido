@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NUVA · Shampoo Sólido Natural</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --verde-bosque: #1E4A0A;
+  --verde-hoja: #3B6D11;
+  --verde-medio: #639922;
+  --verde-claro: #97C459;
+  --verde-palido: #C0DD97;
+  --verde-suave: #EAF3DE;
+  --crema: #F5F0E8;
+  --carbon: #1C1C1A;
+  --gris: #5F5E5A;
+  --gris-claro: #D3D1C7;
+  --blanco: #FAFAF7;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--blanco);
+  color: var(--carbon);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(245,240,232,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--verde-palido);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--verde-bosque);
+  letter-spacing: 2px;
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav-logo-leaf {
+  width: 28px; height: 28px;
+  background: var(--verde-bosque);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gris);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--verde-bosque); }
+.nav-cta {
+  background: var(--verde-bosque);
+  color: var(--crema) !important;
+  padding: 8px 18px;
+  border-radius: 999px;
+}
+.nav-cta:hover { background: var(--verde-hoja); color: var(--crema) !important; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  background: var(--crema);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 100px 4rem 4rem;
+  gap: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  right: -100px; top: -100px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: var(--verde-suave);
+  opacity: 0.5;
+}
+.hero-text { position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--verde-suave);
+  border: 1px solid var(--verde-palido);
+  color: var(--verde-bosque);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+.hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--verde-medio); }
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  color: var(--verde-bosque);
+  margin-bottom: 1.25rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--verde-medio);
+}
+.hero-sub {
+  font-size: 1rem;
+  color: var(--gris);
+  max-width: 420px;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--verde-bosque);
+  color: var(--crema);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-primary:hover { background: var(--verde-hoja); transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  color: var(--verde-bosque);
+  border: 1.5px solid var(--verde-bosque);
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-outline:hover { background: var(--verde-suave); transform: translateY(-1px); }
+
+.hero-visual {
+  display: flex; justify-content: center; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-stats {
+  display: flex; gap: 2rem; margin-top: 2.5rem;
+}
+.stat { }
+.stat-num {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--verde-bosque);
+}
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--gris);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* BENEFICIOS */
+.section { padding: 5rem 4rem; }
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--verde-medio);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: var(--verde-bosque);
+  line-height: 1.2;
+}
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.benefit-card {
+  background: var(--blanco);
+  border: 1px solid var(--gris-claro);
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.benefit-card:hover { border-color: var(--verde-palido); transform: translateY(-3px); }
+.benefit-icon {
+  width: 48px; height: 48px;
+  background: var(--verde-suave);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.benefit-title {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--carbon);
+  margin-bottom: 0.4rem;
+}
+.benefit-desc { font-size: 0.85rem; color: var(--gris); line-height: 1.6; }
+
+/* CATALOGO */
+.catalogo { background: var(--verde-bosque); padding: 5rem 4rem; }
+.catalogo .section-tag { color: var(--verde-claro); }
+.catalogo .section-title { color: var(--crema); }
+.catalogo .section-header { margin-bottom: 2rem; }
+
+.filter-row {
+  display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.filter-btn {
+  background: transparent;
+  border: 1px solid rgba(192,221,151,0.4);
+  color: var(--verde-palido);
+  padding: 7px 18px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.04em;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--verde-claro);
+  border-color: var(--verde-claro);
+  color: var(--verde-bosque);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.product-card {
+  background: var(--crema);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+.product-card:hover { transform: translateY(-4px); }
+.product-card[data-hidden="true"] { display: none; }
+.product-img {
+  background: var(--verde-suave);
+  height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.product-aroma-badge {
+  position: absolute; top: 12px; right: 12px;
+  background: var(--verde-bosque);
+  color: var(--verde-palido);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+.product-body { padding: 1.25rem; }
+.product-type {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--verde-medio);
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+.product-name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--carbon);
+  margin-bottom: 0.4rem;
+}
+.product-desc { font-size: 0.82rem; color: var(--gris); margin-bottom: 1rem; line-height: 1.5; }
+.product-footer {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.product-price {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--verde-bosque);
+}
+.product-price-sub { font-size: 0.72rem; color: var(--gris); font-family: var(--sans); font-weight: 400; }
+.btn-add {
+  background: var(--verde-bosque);
+  color: var(--crema);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-add:hover { background: var(--verde-hoja); }
+
+/* AROMAS */
+.aromas-section { background: var(--crema); padding: 5rem 4rem; }
+.aromas-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.aroma-card {
+  text-align: center;
+  background: var(--blanco);
+  border: 1px solid var(--gris-claro);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.aroma-card:hover { border-color: var(--verde-palido); transform: translateY(-3px); }
+.aroma-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  margin: 0 auto 0.75rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+}
+.aroma-name { font-weight: 500; font-size: 0.95rem; color: var(--carbon); margin-bottom: 4px; }
+.aroma-note { font-size: 0.78rem; color: var(--gris); }
+
+/* SUSCRIPCION */
+.suscripcion { padding: 5rem 4rem; }
+.sus-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.sus-card {
+  border: 1.5px solid var(--gris-claro);
+  border-radius: 20px;
+  padding: 2rem 1.75rem;
+  position: relative;
+  transition: border-color 0.2s;
+}
+.sus-card:hover { border-color: var(--verde-palido); }
+.sus-card.featured {
+  border-color: var(--verde-medio);
+  background: var(--verde-suave);
+}
+.sus-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--verde-medio);
+  color: var(--blanco);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 4px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+.sus-name {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--carbon);
+  margin-bottom: 0.4rem;
+}
+.sus-price {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--verde-bosque);
+  margin-bottom: 0.25rem;
+}
+.sus-price-note { font-size: 0.78rem; color: var(--gris); margin-bottom: 1.25rem; }
+.sus-features { list-style: none; margin-bottom: 1.75rem; }
+.sus-features li {
+  font-size: 0.85rem;
+  color: var(--carbon);
+  padding: 5px 0;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.sus-check { color: var(--verde-medio); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+/* RESEÑAS */
+.resenas { background: var(--crema); padding: 5rem 4rem; }
+.resenas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.resena-card {
+  background: var(--blanco);
+  border: 1px solid var(--gris-claro);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+.stars { color: var(--verde-medio); font-size: 0.9rem; margin-bottom: 0.75rem; letter-spacing: 2px; }
+.resena-text {
+  font-size: 0.88rem;
+  color: var(--carbon);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+.resena-author { display: flex; align-items: center; gap: 10px; }
+.resena-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--verde-suave);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--verde-bosque);
+  flex-shrink: 0;
+}
+.resena-name { font-size: 0.85rem; font-weight: 500; color: var(--carbon); }
+.resena-tipo { font-size: 0.75rem; color: var(--verde-medio); }
+
+/* CONTACTO */
+.contacto { padding: 5rem 4rem; background: var(--verde-bosque); }
+.contacto .section-tag { color: var(--verde-claro); }
+.contacto .section-title { color: var(--crema); }
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 2.5rem;
+}
+.contacto-info { color: var(--verde-palido); }
+.contacto-info p { font-size: 0.9rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.contacto-item {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+  color: var(--verde-palido);
+}
+.contacto-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(192,221,151,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.form-group { margin-bottom: 1rem; }
+.form-group label {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--verde-palido);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(192,221,151,0.3);
+  color: var(--crema);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  padding: 11px 14px;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--verde-claro);
+}
+.form-group select option { background: var(--verde-bosque); color: var(--crema); }
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.btn-enviar {
+  width: 100%;
+  background: var(--verde-claro);
+  color: var(--verde-bosque);
+  border: none;
+  padding: 14px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 0.5rem;
+}
+.btn-enviar:hover { background: var(--verde-palido); transform: translateY(-1px); }
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+  color: var(--verde-palido);
+}
+.form-success .success-icon {
+  font-size: 2.5rem; margin-bottom: 0.75rem;
+}
+.form-success p { font-size: 0.9rem; line-height: 1.7; }
+
+/* FOOTER */
+footer {
+  background: var(--carbon);
+  padding: 3rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-logo {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--verde-palido);
+  letter-spacing: 2px;
+}
+.footer-slogan {
+  font-size: 0.78rem;
+  color: var(--gris);
+  font-style: italic;
+  margin-top: 3px;
+}
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a {
+  font-size: 0.8rem;
+  color: var(--gris);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--verde-palido); }
+.footer-copy { font-size: 0.75rem; color: var(--gris); }
+
+/* TOAST */
+.toast {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+  background: var(--verde-bosque);
+  color: var(--crema);
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: none;
+  border: 1px solid var(--verde-claro);
+  animation: slideUp 0.3s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ANIMACIONES entrada */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding: 100px 2rem 3rem; }
+  .hero::before { display: none; }
+  .benefits-grid { grid-template-columns: 1fr 1fr; }
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .aromas-grid { grid-template-columns: repeat(3, 1fr); }
+  .sus-grid { grid-template-columns: 1fr; }
+  .resenas-grid { grid-template-columns: 1fr; }
+  .contacto-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .section, .catalogo, .aromas-section, .suscripcion, .resenas, .contacto { padding: 3rem 1.5rem; }
+  nav { padding: 0 1.25rem; }
+  .nav-links { display: none; }
+  footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  .hero-stats { gap: 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-leaf">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <ellipse cx="8" cy="8" rx="5" ry="7" fill="#C0DD97" transform="rotate(-25 8 8)"/>
+        <ellipse cx="8" cy="8" rx="5" ry="7" fill="#97C459" transform="rotate(25 8 8)" opacity=".7"/>
+        <line x1="8" y1="3" x2="8" y2="13" stroke="#EAF3DE" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    NUVA
+  </a>
+  <ul class="nav-links">
+    <li><a href="#catalogo">Productos</a></li>
+    <li><a href="#aromas">Aromas</a></li>
+    <li><a href="#suscripcion">Recarga</a></li>
+    <li><a href="#resenas">Reseñas</a></li>
+    <li><a href="#contacto" class="nav-cta">Pedir ahora</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      100% Natural · Libre de plástico
+    </div>
+    <h1>La <em>revolución ecológica</em> para tu cabello.</h1>
+    <p class="hero-sub">Shampoo sólido artesanal en pote de vidrio rellenable. Sin derrames, sin químicos agresivos, sin culpa medioambiental.</p>
+    <div class="hero-actions">
+      <a href="#catalogo" class="btn-primary">Ver productos</a>
+      <a href="#suscripcion" class="btn-outline">Plan de recarga</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">6</div>
+        <div class="stat-label">tipos de cabello</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-label">aromas naturales</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">~60</div>
+        <div class="stat-label">usos por barra</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <svg viewBox="0 0 320 360" width="300" xmlns="http://www.w3.org/2000/svg">
+      <!-- sombra base -->
+      <ellipse cx="160" cy="340" rx="80" ry="12" fill="#C0DD97" opacity=".4"/>
+      <!-- pote vidrio cuerpo -->
+      <rect x="60" y="130" width="200" height="200" rx="20" fill="#EAF3DE" stroke="#97C459" stroke-width="1.5"/>
+      <!-- vidrio brillo lateral -->
+      <rect x="68" y="138" width="18" height="100" rx="9" fill="white" opacity=".5"/>
+      <!-- tapa -->
+      <rect x="70" y="95" width="180" height="42" rx="12" fill="#27500A"/>
+      <rect x="90" y="103" width="140" height="14" rx="7" fill="#3B6D11"/>
+      <!-- etiqueta -->
+      <rect x="78" y="158" width="164" height="148" rx="10" fill="white" stroke="#C0DD97" stroke-width="1"/>
+      <!-- hojas decorativas -->
+      <ellipse cx="160" cy="196" rx="26" ry="17" fill="#C0DD97" transform="rotate(-30 160 196)"/>
+      <ellipse cx="160" cy="196" rx="26" ry="17" fill="#97C459" transform="rotate(30 160 196)" opacity=".75"/>
+      <line x1="160" y1="178" x2="160" y2="214" stroke="#3B6D11" stroke-width="2" stroke-linecap="round"/>
+      <line x1="144" y1="192" x2="176" y2="202" stroke="#3B6D11" stroke-width="1.2" stroke-linecap="round"/>
+      <!-- texto etiqueta -->
+      <text x="160" y="234" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#1E4A0A" letter-spacing="4">NUVA</text>
+      <text x="160" y="252" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#639922" letter-spacing="2">SHAMPOO SÓLIDO</text>
+      <text x="160" y="268" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" fill="#97C459">100% natural · vegano</text>
+      <!-- pote pie -->
+      <rect x="60" y="322" width="200" height="12" rx="6" fill="#C0DD97" opacity=".5"/>
+      <!-- texto rellenable -->
+      <text x="160" y="348" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#639922">↻ pote de vidrio rellenable</text>
+    </svg>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="section fade-in">
+  <div class="section-header">
+    <div class="section-tag">¿Por qué NUVA?</div>
+    <h2 class="section-title">Natural desde la raíz</h2>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon">🌿</div>
+      <div class="benefit-title">100% ingredientes naturales</div>
+      <div class="benefit-desc">Sin sulfatos, parabenos ni siliconas. Solo lo que tu cabello realmente necesita.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">♻️</div>
+      <div class="benefit-title">Cero plástico</div>
+      <div class="benefit-desc">Pote de vidrio rellenable. Cuando acabas, lo vuelves a llenar. Tu pote dura años.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">✈️</div>
+      <div class="benefit-title">Viaja sin derrames</div>
+      <div class="benefit-desc">Formato sólido: perfecto para mochila, gym o viaje. Sin líquidos que se derramen.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🐰</div>
+      <div class="benefit-title">Vegano y cruelty-free</div>
+      <div class="benefit-desc">Formulado sin ingredientes de origen animal ni pruebas en animales. Siempre.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOGO -->
+<section class="catalogo fade-in" id="catalogo">
+  <div class="section-header">
+    <div class="section-tag">Catálogo</div>
+    <h2 class="section-title" style="color:var(--crema);">Encuentra tu fórmula perfecta</h2>
+  </div>
+  <div class="filter-row">
+    <button class="filter-btn active" onclick="filtrar('todos',this)">Todos</button>
+    <button class="filter-btn" onclick="filtrar('seco',this)">Cabello seco</button>
+    <button class="filter-btn" onclick="filtrar('graso',this)">Cabello graso</button>
+    <button class="filter-btn" onclick="filtrar('rizado',this)">Cabello rizado</button>
+    <button class="filter-btn" onclick="filtrar('lacio',this)">Cabello lacio</button>
+    <button class="filter-btn" onclick="filtrar('tenido',this)">Cabello teñido</button>
+    <button class="filter-btn" onclick="filtrar('danado',this)">Cabello dañado</button>
+  </div>
+  <div class="products-grid" id="productsGrid">
+
+    <div class="product-card" data-tipo="seco">
+      <div class="product-img" style="background:#EAF3DE;">
+        <svg viewBox="0 0 120 130" width="90"><ellipse cx="60" cy="65" rx="38" ry="38" fill="#C0DD97" opacity=".5"/><rect x="30" y="42" width="60" height="65" rx="8" fill="#EAF3DE" stroke="#97C459" stroke-width="1.2"/><rect x="35" y="32" width="50" height="14" rx="5" fill="#27500A"/><text x="60" y="80" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="#1E4A0A">NUVA</text><text x="60" y="92" text-anchor="middle" font-family="Arial" font-size="7" fill="#639922">seco</text></svg>
+        <div class="product-aroma-badge">Lavanda</div>
+      </div>
+      <div class="product-body">
+        <div class="product-type">Cabello seco</div>
+        <div class="product-name">Hidratación profunda</div>
+        <div class="product-desc">Karité + argán + coco. Sella la humedad y nutre la fibra capilar.</div>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">S/ 35</div>
+            <div class="product-price-sub">~60 usos · pote incluido</div>
+          </div>
+          <button class="btn-add" onclick="addToCart('Seco · Lavanda')">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-tipo="graso">
+      <div class="product-img" style="background:#E1F5EE;">
+        <svg viewBox="0 0 120 130" width="90"><ellipse cx="60" cy="65" rx="38" ry="38" fill="#9FE1CB" opacity=".4"/><rect x="30" y="42" width="60" height="65" rx="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1.2"/><rect x="35" y="32" width="50" height="14" rx="5" fill="#085041"/><text x="60" y="80" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="#085041">NUVA</text><text x="60" y="92" text-anchor="middle" font-family="Arial" font-size="7" fill="#1D9E75">graso</text></svg>
+        <div class="product-aroma-badge">Menta</div>
+      </div>
+      <div class="product-body">
+        <div class="product-type">Cabello graso</div>
+        <div class="product-name">Control & frescura</div>
+        <div class="product-desc">Arcilla caolín + árbol de té + ortiga. Purifica sin resecar.</div>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">S/ 35</div>
+            <div class="product-price-sub">~60 usos · pote incluido</div>
+          </div>
+          <button class="btn-add" onclick="addToCart('Graso · Menta')">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-tipo="rizado">
+      <div class="product-img" style="background:#FAEEDA;">
+        <svg viewBox="0 0 120 130" width="90"><ellipse cx="60" cy="65" rx="38" ry="38" fill="#FAC775" opacity=".4"/><rect x="30" y="42" width="60" height="65" rx="8" fill="#FAEEDA" stroke="#EF9F27" stroke-width="1.2"/><rect x="35" y="32" width="50" height="14" rx="5" fill="#412402"/><text x="60" y="80" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="#412402">NUVA</text><text x="60" y="92" text-anchor="middle" font-family="Arial" font-size="7" fill="#BA7517">rizado</text></svg>
+        <div class="product-aroma-badge">Coco</div>
+      </div>
+      <div class="product-body">
+        <div class="product-type">Cabello rizado</div>
+        <div class="product-name">Define & anti-frizz</div>
+        <div class="product-desc">Mango + proteína de seda + glicerina. Define rizos y elimina el encrespamiento.</div>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">S/ 35</div>
+            <div class="product-price-sub">~60 usos · pote incluido</div>
+          </div>
+          <button class="btn-add" onclick="addToCart('Rizado · Coco')">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-tipo="lacio">
+      <div class="product-img" style="background:#F1EFE8;">
+        <svg viewBox="0 0 120 130" width="90"><ellipse cx="60" cy="65" rx="38" ry="38" fill="#D3D1C7" opacity=".4"/><rect x="30" y="42" width="60" height="65" rx="8" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="1.2"/><rect x="35" y="32" width="50" height="14" rx="5" fill="#2C2C2A"/><text x="60" y="80" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="#2C2C2A">NUVA</text><text x="60" y="92" text-anchor="middle" font-family="Arial" font-size="7" fill="#5F5E5A">lacio</text></svg>
+        <div class="product-aroma-badge">Citrus</div>
+      </div>
+      <div class="product-body">
+        <div class="product-type">Cabello lacio</div>
+        <div class="product-name">Brillo & efecto seda</div>
+        <div class="product-desc">Camelia + proteína de trigo + bambú. Brillo máximo sin pesadez.</div>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">S/ 35</div>
+            <div class="product-price-sub">~60 usos · pote incluido</div>
+          </div>
+          <button class="btn-add" onclick="addToCart('Lacio · Citrus')">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-tipo="tenido">
+      <div class="product-img" style="background:#FBEAF0;">
+        <svg viewBox="0 0 120 130" width="90"><ellipse cx="60" cy="65" rx="38" ry="38" fill="#F4C0D1" opacity=".4"/><rect x="30" y="42" width="60" height="65" rx="8" fill="#FBEAF0" stroke="#ED93B1" stroke-width="1.2"/><rect x="35" y="32" width="50" height="14" rx="5" fill="#4B1528"/><text x="60" y="80" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="#4B1528">NUVA</text><text x="60" y="92" text-anchor="middle" font-family="Arial" font-size="7" fill="#993556">teñido</text></svg>
+        <div class="product-aroma-badge">Rosa mosqueta</div>
+      </div>
+      <div class="product-body">
+        <div class="product-type">Cabello teñido</div>
+        <div class="product-name">Protege el color</div>
+        <div class="product-desc">Rosa mosqueta + granada + vitamina E. Fija el pigmento y sella la cutícula.</div>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">S/ 35</div>
+            <div class="product-price-sub">~60 usos · pote incluido</div>
+          </div>
+          <button class="btn-add" onclick="addToCart('Teñido · Rosa mosqueta')">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-tipo="danado">
+      <div class="product-img" style="background:#EEEDFE;">
+        <svg viewBox="0 0 120 130" width="90"><ellipse cx="60" cy="65" rx="38" ry="38" fill="#CECBF6" opacity=".4"/><rect x="30" y="42" width="60" height="65" rx="8" fill="#EEEDFE" stroke="#AFA9EC" stroke-width="1.2"/><rect x="35" y="32" width="50" height="14" rx="5" fill="#26215C"/><text x="60" y="80" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="#26215C">NUVA</text><text x="60" y="92" text-anchor="middle" font-family="Arial" font-size="7" fill="#534AB7">dañado</text></svg>
+        <div class="product-aroma-badge">Lavanda</div>
+      </div>
+      <div class="product-body">
+        <div class="product-type">Cabello dañado</div>
+        <div class="product-name">Regeneración intensa</div>
+        <div class="product-desc">Quinoa + aguacate + cupuazú. Reconstruye la fibra capilar dañada.</div>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">S/ 35</div>
+            <div class="product-price-sub">~60 usos · pote incluido</div>
+          </div>
+          <button class="btn-add" onclick="addToCart('Dañado · Lavanda')">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AROMAS -->
+<section class="aromas-section fade-in" id="aromas">
+  <div class="section-header">
+    <div class="section-tag">Aromas naturales</div>
+    <h2 class="section-title">Elige tu esencia favorita</h2>
+  </div>
+  <div class="aromas-grid">
+    <div class="aroma-card">
+      <div class="aroma-icon" style="background:#EEEDFE;">🪻</div>
+      <div class="aroma-name">Lavanda</div>
+      <div class="aroma-note">Relajante · floral · suave</div>
+    </div>
+    <div class="aroma-card">
+      <div class="aroma-icon" style="background:#E1F5EE;">🌿</div>
+      <div class="aroma-name">Menta</div>
+      <div class="aroma-note">Refrescante · fresco · limpio</div>
+    </div>
+    <div class="aroma-card">
+      <div class="aroma-icon" style="background:#FAEEDA;">🥥</div>
+      <div class="aroma-name">Coco</div>
+      <div class="aroma-note">Tropical · dulce · nutritivo</div>
+    </div>
+    <div class="aroma-card">
+      <div class="aroma-icon" style="background:#FBEAF0;">🌹</div>
+      <div class="aroma-name">Rosa mosqueta</div>
+      <div class="aroma-note">Delicado · suave · femenino</div>
+    </div>
+    <div class="aroma-card">
+      <div class="aroma-icon" style="background:#EAF3DE;">🍋</div>
+      <div class="aroma-name">Citrus</div>
+      <div class="aroma-note">Energizante · fresco · cítrico</div>
+    </div>
+  </div>
+</section>
+
+<!-- SUSCRIPCION -->
+<section class="suscripcion fade-in" id="suscripcion">
+  <div class="section-header">
+    <div class="section-tag">Programa de recarga</div>
+    <h2 class="section-title">Cuídate cada mes, sin pensar</h2>
+  </div>
+  <div class="sus-grid">
+    <div class="sus-card">
+      <div class="sus-name">Primera compra</div>
+      <div class="sus-price">S/ 35</div>
+      <div class="sus-price-note">pago único · incluye pote de vidrio</div>
+      <ul class="sus-features">
+        <li><span class="sus-check">✓</span>Pote de vidrio rellenable</li>
+        <li><span class="sus-check">✓</span>Barra de shampoo 60g (~60 usos)</li>
+        <li><span class="sus-check">✓</span>Elige tipo de cabello y aroma</li>
+        <li><span class="sus-check">✓</span>Etiqueta kraft personalizada</li>
+        <li><span class="sus-check">✓</span>Guía de uso en papel reciclado</li>
+      </ul>
+      <a href="#contacto" class="btn-primary" style="display:block;text-align:center;">Pedir ahora</a>
+    </div>
+    <div class="sus-card featured">
+      <div class="sus-badge">⭐ Más popular</div>
+      <div class="sus-name">Recarga mensual</div>
+      <div class="sus-price">S/ 18</div>
+      <div class="sus-price-note">por mes · suscripción cancelable</div>
+      <ul class="sus-features">
+        <li><span class="sus-check">✓</span>Nueva barra cada 2 meses</li>
+        <li><span class="sus-check">✓</span>18% de descuento permanente</li>
+        <li><span class="sus-check">✓</span>Cambia de aroma cada vez</li>
+        <li><span class="sus-check">✓</span>Sin plástico · bolsa kraft</li>
+        <li><span class="sus-check">✓</span>Cancela cuando quieras</li>
+      </ul>
+      <a href="#contacto" class="btn-primary" style="display:block;text-align:center;">Suscribirme</a>
+    </div>
+    <div class="sus-card">
+      <div class="sus-name">Recarga unitaria</div>
+      <div class="sus-price">S/ 22</div>
+      <div class="sus-price-note">sin compromiso · sin pote</div>
+      <ul class="sus-features">
+        <li><span class="sus-check">✓</span>Solo la barra (ya tienes el pote)</li>
+        <li><span class="sus-check">✓</span>Embalaje en bolsa kraft</li>
+        <li><span class="sus-check">✓</span>Elige aroma diferente si quieres</li>
+        <li><span class="sus-check">✓</span>Envío a todo Lima</li>
+        <li><span class="sus-check">✓</span>Pedido en WhatsApp o web</li>
+      </ul>
+      <a href="#contacto" class="btn-outline" style="display:block;text-align:center;">Pedir recarga</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section class="resenas fade-in" id="resenas">
+  <div class="section-header">
+    <div class="section-tag">Lo que dicen nuestras clientas</div>
+    <h2 class="section-title">Resultados reales, personas reales</h2>
+  </div>
+  <div class="resenas-grid">
+    <div class="resena-card">
+      <div class="stars">★★★★★</div>
+      <div class="resena-text">"Llevaba años buscando algo que no me ressecara el cuero cabelludo. Con NUVA para cabello seco en aroma lavanda mi cabello cambió en dos semanas. ¡Y el pote de vidrio es precioso!"</div>
+      <div class="resena-author">
+        <div class="resena-avatar">VA</div>
+        <div>
+          <div class="resena-name">Valeria A.</div>
+          <div class="resena-tipo">Cabello seco · Lavanda</div>
+        </div>
+      </div>
+    </div>
+    <div class="resena-card">
+      <div class="stars">★★★★★</div>
+      <div class="resena-text">"Tengo el cabello rizado y siempre tenía frizz. Con la fórmula rizada de NUVA mis rizos quedaron definidos desde el primer uso. Además me encanta que puedo rellenar el potecito."</div>
+      <div class="resena-author">
+        <div class="resena-avatar">CR</div>
+        <div>
+          <div class="resena-name">Camila R.</div>
+          <div class="resena-tipo">Cabello rizado · Coco</div>
+        </div>
+      </div>
+    </div>
+    <div class="resena-card">
+      <div class="stars">★★★★☆</div>
+      <div class="resena-text">"Viajo mucho y siempre tenía el problema de los líquidos en el avión. Con NUVA sólido ya no me preocupo. Mi cabello teñido se ve brillante y el color dura mucho más."</div>
+      <div class="resena-author">
+        <div class="resena-avatar">MP</div>
+        <div>
+          <div class="resena-name">María P.</div>
+          <div class="resena-tipo">Cabello teñido · Rosa mosqueta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO / PEDIDO -->
+<section class="contacto fade-in" id="contacto">
+  <div class="section-header">
+    <div class="section-tag">Contacto y pedidos</div>
+    <h2 class="section-title">Haz tu pedido ahora</h2>
+  </div>
+  <div class="contacto-grid">
+    <div class="contacto-info">
+      <p>Escríbenos con tu tipo de cabello y aroma preferido. Te contactamos en menos de 24 horas para coordinar el envío a todo Lima y provincias.</p>
+      <div class="contacto-item">
+        <div class="contacto-icon">📱</div>
+        <span>WhatsApp: +51 999 000 000</span>
+      </div>
+      <div class="contacto-item">
+        <div class="contacto-icon">📷</div>
+        <span>Instagram: @nuvanatural</span>
+      </div>
+      <div class="contacto-item">
+        <div class="contacto-icon">📦</div>
+        <span>Envíos a todo Lima · 24–48h</span>
+      </div>
+      <div class="contacto-item">
+        <div class="contacto-icon">♻️</div>
+        <span>Puntos de recarga presencial en Miraflores y San Isidro</span>
+      </div>
+    </div>
+    <div>
+      <form id="pedidoForm" onsubmit="enviarPedido(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" placeholder="Tu nombre" required/>
+          </div>
+          <div class="form-group">
+            <label>Teléfono / WhatsApp</label>
+            <input type="tel" placeholder="+51 9XX XXX XXX" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" placeholder="tu@correo.com"/>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Tipo de cabello</label>
+            <select required>
+              <option value="">Selecciona...</option>
+              <option>Seco</option>
+              <option>Graso</option>
+              <option>Rizado</option>
+              <option>Lacio</option>
+              <option>Teñido</option>
+              <option>Dañado</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Aroma favorito</label>
+            <select required>
+              <option value="">Selecciona...</option>
+              <option>Lavanda</option>
+              <option>Menta</option>
+              <option>Coco</option>
+              <option>Rosa mosqueta</option>
+              <option>Citrus</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Tipo de pedido</label>
+          <select required>
+            <option value="">Selecciona...</option>
+            <option>Primera compra (S/ 35 · con pote)</option>
+            <option>Recarga unitaria (S/ 22)</option>
+            <option>Suscripción mensual (S/ 18/mes)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensaje adicional (opcional)</label>
+          <textarea placeholder="Dirección de entrega, consultas, etc."></textarea>
+        </div>
+        <button type="submit" class="btn-enviar">Enviar pedido →</button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">🌿</div>
+        <p style="color:var(--verde-palido);font-size:1.1rem;font-weight:500;margin-bottom:0.5rem;">¡Pedido recibido!</p>
+        <p style="color:var(--verde-palido);">Te contactaremos por WhatsApp en las próximas horas para coordinar tu entrega. Gracias por elegir NUVA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">NUVA</div>
+    <div class="footer-slogan">"La revolución ecológica para tu cabello."</div>
+  </div>
+  <div class="footer-links">
+    <a href="#catalogo">Productos</a>
+    <a href="#aromas">Aromas</a>
+    <a href="#suscripcion">Recarga</a>
+    <a href="#resenas">Reseñas</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <div class="footer-copy">© 2026 NUVA · Hecho con 💚 en Lima, Perú</div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function filtrar(tipo, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card => {
+    if (tipo === 'todos' || card.dataset.tipo === tipo) {
+      card.removeAttribute('data-hidden');
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function addToCart(producto) {
+  mostrarToast('✓ ' + producto + ' agregado al pedido');
+}
+
+function mostrarToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => { t.style.display = 'none'; }, 3000);
+}
+
+function enviarPedido(e) {
+  e.preventDefault();
+  document.getElementById('pedidoForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
